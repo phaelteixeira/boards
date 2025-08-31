@@ -1,6 +1,7 @@
 package org.raphael.com;
 
 import org.raphael.com.persistence.migration.MigrationStrategy;
+import org.raphael.com.ui.MainMenu;
 
 import java.sql.SQLException;
 
@@ -13,5 +14,6 @@ public class Main {
         try(var connection = getConnection()){
             new MigrationStrategy(connection).executeMigration();
         }
+        new MainMenu().execute();
     }
 }
